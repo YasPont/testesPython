@@ -1,5 +1,5 @@
-import tkinter as tk # importar a biblioteca grafica apilidando de tk pra facilitar o uso
-from tkinter import messagebox # janelinha pop-uso de aviso
+import tkinter as tk 
+from tkinter import messagebox 
 
 class JogoDaVelha:
     def __init__(self):
@@ -13,16 +13,16 @@ class JogoDaVelha:
         
     def criar_interface(self):
         # Cria os 9 botões do jogo
-        for i in range(9): #loop para criar os 9 quadrados 
+        for i in range(9): 
             btn = tk.Button(self.janela, text="", font=("Arial", 20, "bold"), 
                             width=5, height=2,
                             command=lambda i=i: self.clique(i)) #criar o botão 
-            btn.grid(row=i//3, column=i%3, sticky="nsew") #posicionar o botão em uma grade
+            btn.grid(row=i//3, column=i%3, sticky="nsew") 
             self.botoes.append(btn) #salva o botão na linha
             
     def clique(self, indice):
-        # Só age se o botão estiver vazio e ninguém tiver vencido
-        if self.tabuleiro[indice] == "" and self.turno: #verifica se o jogador clicou em um espaço vazio
+        
+        if self.tabuleiro[indice] == "" and self.turno: 
             self.tabuleiro[indice] = self.turno
             self.botoes[indice].config(text=self.turno) 
             
@@ -33,22 +33,21 @@ class JogoDaVelha:
                 messagebox.showinfo("Fim de Jogo", "Empate!")
                 self.reiniciar()
             else:
-                # Alterna o turno
+               
                 self.turno = "O" if self.turno == "X" else "X"
 
     def verificar_vitoria(self):
-        # Combinações de vitória (linhas, colunas e diagonais)
         vitorias = [
             (0, 1, 2), (3, 4, 5), (6, 7, 8), # Horizontais
             (0, 3, 6), (1, 4, 7), (2, 5, 8), # Verticais
             (0, 4, 8), (2, 4, 6)             # Diagonais
         ]
-        for a, b, c in vitorias:      #checa se o simbolo na posição a é igual a b e c e garante que não estejam vazios
+        for a, b, c in vitorias:      
             if self.tabuleiro[a] == self.tabuleiro[b] == self.tabuleiro[c] != "":
                 return True
         return False
 
-    def reiniciar(self): #limpa o tabuleiro
+    def reiniciar(self): 
         self.turno = "X"
         self.tabuleiro = [""] * 9
         for btn in self.botoes:
