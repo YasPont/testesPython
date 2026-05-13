@@ -1,13 +1,13 @@
-import tkinter as tk
+import tkinter as tk 
 from tkinter import messagebox
 
 def on_click(botao_texto):
-    """Gerencia o que acontece quando um botão é clicado."""
+    
     atual = entrada.get()
     
     if botao_texto == "=":
         try:
-            # Avalia a expressão matemática na tela
+            
             resultado = eval(atual)
             entrada.delete(0, tk.END)
             entrada.insert(tk.END, str(resultado))
@@ -23,11 +23,11 @@ def on_click(botao_texto):
 
 # Configuração da Janela Principal
 janela = tk.Tk()
-janela.title("Calculadora")
+janela.title("Calculadora Simples")
 janela.geometry("300x400")
 
-# Campo de exibição (Display)
-entrada = tk.Entry(janela, font=("Arial", 24), borderwidth=5, relief="flat", justify="right")
+# Display
+entrada = tk.Entry(janela, font=("Arial", 25), borderwidth=5, relief="flat", justify="right")
 entrada.grid(row=0, column=0, columnspan=4, padx=10, pady=20, sticky="nsew")
 
 # Definição dos botões
