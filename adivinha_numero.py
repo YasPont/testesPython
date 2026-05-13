@@ -3,7 +3,7 @@ import random
 def jogar_adivinhacao():
     print("   BEM-VINDO AO ADIVINHADOR!   ")
     
-    numero_secreto = random.randint(1, 100) 
+    numero_secreto = random.randint(1, 200) 
     tentativas = 0
     max_tentativas = 10
     ganhou = False
