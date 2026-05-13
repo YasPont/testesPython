@@ -3,22 +3,20 @@ from tkinter import messagebox
 
 class JogoDaVelha:
     def __init__(self):
-        self.janela = tk.Tk() # criar janela principal
-        self.janela.title("Jogo da Velha") #titulo dela
-        self.turno = "X" # controla quem joga na vez, começa com x
-        self.tabuleiro = [""] * 9 #lista com 9 espaços vazios, representando o estado do jogo
-        self.botoes = [] #lista para armazenar os objetos dos botões que vão tá na tela 
-
+        self.janela = tk.Tk() 
+        self.janela.title("Jogo da Velha") 
+        self.turno = "X" 
+        self.tabuleiro = [""] * 9 
+        self.botoes = [] 
         self.criar_interface()
         
     def criar_interface(self):
-        # Cria os 9 botões do jogo
         for i in range(9): 
             btn = tk.Button(self.janela, text="", font=("Arial", 20, "bold"), 
                             width=5, height=2,
-                            command=lambda i=i: self.clique(i)) #criar o botão 
+                            command=lambda i=i: self.clique(i))
             btn.grid(row=i//3, column=i%3, sticky="nsew") 
-            self.botoes.append(btn) #salva o botão na linha
+            self.botoes.append(btn)
             
     def clique(self, indice):
         
@@ -54,9 +52,8 @@ class JogoDaVelha:
             btn.config(text="")
 
     def rodar(self):
-        self.janela.mainloop() # mantem a janela aberta e escutando os cliques 
+        self.janela.mainloop() 
 
-# Inicia o jogo
 if __name__ == "__main__":
     jogo = JogoDaVelha()
     jogo.rodar()
