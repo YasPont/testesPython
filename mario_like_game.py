@@ -2,7 +2,7 @@ import pygame
 import sys
 from pygame.locals import *
 
-# 1. CONFIGURAÇÕES E CONSTANTES
+# CONFIGURAÇÕES E CONSTANTES
 SCREEN_WIDTH = 960
 SCREEN_HEIGHT = 640
 FPS = 60
@@ -18,7 +18,7 @@ GREEN = (50, 200, 50)
 GOLD = (255, 215, 0)
 BLUE = (20, 20, 160)
 
-# 2. CLASSES
+# CLASSES
 class Camera:
     def __init__(self, width, height):
         self.offset = pygame.Vector2(0, 0)
@@ -97,7 +97,7 @@ class Player(pygame.sprite.Sprite):
                 self.vel.y = 0
             self.pos.y = self.rect.y
 
-# 3. LÓGICA DE NÍVEIS
+# LÓGICA DE NÍVEIS
 def get_level_data(level_number):
     """ Retorna as plataformas e a posição da bandeira de cada nível """
     platforms = []
@@ -166,7 +166,7 @@ def main():
             player.update(all_platforms)
             camera.update(player.rect)
 
-            # Verificar se tocou na bandeira (passou de nível)
+            # Verificar se tocou na bandeira
             if pygame.sprite.spritecollide(player, flags, False):
                 nivel_atual += 1
                 rodando_nivel = False
@@ -175,7 +175,7 @@ def main():
             if player.rect.top > SCREEN_HEIGHT:
                 rodando_nivel = False # Reinicia o mesmo nível
 
-            # 3. DESENHO
+            # DESENHO
             screen.fill(SKY)
             for p in all_platforms:
                 screen.blit(p.image, camera.apply(p.rect))
