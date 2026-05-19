@@ -17,7 +17,7 @@ def jogar_adivinhacao():
         try:
             chute = int(input("Qual o seu palpite? "))
         except ValueError:
-            print("Digite apenas números inteiros, Plase!")
+            print("Digite apenas números inteiros, Please!")
             continue
 
         tentativas += 1
